@@ -20,8 +20,14 @@ The idea is to implement a JS program that prints itself on a runtime. It should
         f = function(a) {
             return eval('"\\u' + a + '"');
         };
-         
-3. TODO: describe further steps.
+
+4. The program will have following view: `f = function(a) {...}; s = <text>; console.log('<f-output> s = ' + f('0022') + s + f('0022') + s')`.
+   <f-output> = `f = function(a) {return eval(' + f('0027') + f('0022') + f('005c') + f('005c') + 'u' + f('0027') + ' + a + ' + f('0027') + f('0022') + f('0027') + ');};`
+   
+5. Finally, <text> value should be specified.
+    <text> = `; console.log('f = function(a) {return eval(' + f('0027') + f('0022') + f('005c') + f('005c') + 'u' + f('0027') + ' + a + ' + f('0027') + f('0022') + f('0027') + ');}; s = ' + f('0022') + s + f('0022') + s);`.
+   
+6. Formated text of program. New line characters should be removed.
 
         f = function(a) {
             return eval('"\\u' + a + '"');
